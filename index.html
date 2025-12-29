@@ -426,9 +426,11 @@
             <div id="countdown" class="countdown-display"></div>
         </div>
 
-        <a href="https://buy.stripe.com/14A5kE0d3cQM5XI3cc" class="sponsor-button">
-            Add your company to the net scavenger hunt
-        </a>
+        <div style="text-align: center; padding: 20px; background: white;">
+            <a href="https://buy.stripe.com/14A5kE0d3cQM5XI3B57AI0h" class="sponsor-button" target="_blank" rel="noopener noreferrer">
+                Add your company to the net scavenger hunt
+            </a>
+        </div>
 
         <div class="content">
             <div class="progress-bar">
@@ -687,7 +689,8 @@
 
         // Countdown timer function
         function updateCountdown() {
-            const targetDate = new Date('2026-01-17T09:00:00').getTime();
+            // January 17, 2026 at 9:00 AM Central Time (CST is UTC-6)
+            const targetDate = new Date('2026-01-17T09:00:00-06:00').getTime();
             const now = new Date().getTime();
             const distance = targetDate - now;
 

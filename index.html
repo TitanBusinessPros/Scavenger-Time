@@ -488,9 +488,9 @@
         // ============================================
         const LOCATIONS = [
             {
-                name: "McDonald's - Pauls Valley",
+                name: "Coming Soon - Pauls Valley",
                 qrCode: "PVMCD2024",
-                description: "Find the QR code posted on the window near the PlayPlace entrance. Look for the scavenger hunt sticker on the right side of the building.",
+                description: "Find the purple shirt and gain the code to find the next location.",
                 city: "Pauls Valley"
             },
             {
@@ -661,7 +661,7 @@
                         <input type="text" 
                                class="qr-input" 
                                id="qr-${index}" 
-                               placeholder="Enter QR code"
+                               placeholder="Enter code"
                                maxlength="20">
                         <button class="btn btn-primary" onclick="verifyQRCode(${index}, document.getElementById('qr-${index}'))">
                             Submit Code
@@ -744,4 +744,3 @@
     </script>
 </body>
 </html>
-

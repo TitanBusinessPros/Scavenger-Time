@@ -349,6 +349,66 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
         }
+
+        .countdown-container {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .countdown-container h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .countdown-display {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: 10px;
+            min-width: 80px;
+        }
+
+        .countdown-number {
+            font-size: 36px;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 14px;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .sponsor-button {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px 30px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.3);
+        }
+
+        .sponsor-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245, 87, 108, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -365,6 +425,10 @@
             <h2>Next Scavenger Hunt Starts In:</h2>
             <div id="countdown" class="countdown-display"></div>
         </div>
+
+        <a href="https://buy.stripe.com/14A5kE0d3cQM5XI3cc" class="sponsor-button">
+            Add your company to the net scavenger hunt
+        </a>
 
         <div class="content">
             <div class="progress-bar">
@@ -621,10 +685,50 @@
             }
         }
 
+        // Countdown timer function
+        function updateCountdown() {
+            const targetDate = new Date('2026-01-17T09:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            const countdownElement = document.getElementById('countdown');
+            if (countdownElement) {
+                if (distance < 0) {
+                    countdownElement.innerHTML = '<div style="font-size: 24px; font-weight: bold;">Scavenger Hunt is Live!</div>';
+                } else {
+                    countdownElement.innerHTML = `
+                        <div class="countdown-item">
+                            <div class="countdown-number">${days}</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number">${hours}</div>
+                            <div class="countdown-label">Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number">${minutes}</div>
+                            <div class="countdown-label">Minutes</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number">${seconds}</div>
+                            <div class="countdown-label">Seconds</div>
+                        </div>
+                    `;
+                }
+            }
+        }
+
         // Initialize on page load
         window.addEventListener('DOMContentLoaded', () => {
             loadProgress();
             renderHunt();
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
         });
 
         // Handle Enter key on inputs

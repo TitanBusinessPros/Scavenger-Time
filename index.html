@@ -506,23 +506,39 @@
             color: #ffe4b5;
         }
 
-        .sponsor-button {
+        .action-button {
             display: block;
             width: 100%;
-            max-width: 400px;
+            max-width: 450px;
             margin: 20px auto;
             padding: 20px 30px;
-            background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
-            color: #ffd700;
             text-align: center;
             text-decoration: none;
             border-radius: 25px;
             font-size: 18px;
             font-weight: bold;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.4);
             border: 3px solid #d4af37;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            white-space: nowrap;
+        }
+
+        .join-button {
+            background: linear-gradient(135deg, #228b22 0%, #006400 100%);
+            color: #ffd700;
+            box-shadow: 0 10px 30px rgba(34, 139, 34, 0.4);
+        }
+
+        .join-button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(34, 139, 34, 0.6);
+            background: linear-gradient(135deg, #006400 0%, #228b22 100%);
+        }
+
+        .sponsor-button {
+            background: linear-gradient(135deg, #dc143c 0%, #8b0000 100%);
+            color: #ffd700;
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.4);
         }
 
         .sponsor-button:hover {
@@ -534,6 +550,12 @@
         @media (max-width: 600px) {
             .sponsors-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .action-button {
+                font-size: 16px;
+                padding: 18px 20px;
+                white-space: normal;
             }
         }
     </style>
@@ -554,8 +576,11 @@
         </div>
 
         <div style="text-align: center; padding: 20px; background: linear-gradient(to bottom, #fef9e7, #fff);">
-            <a href="https://buy.stripe.com/14A5kE0d3cQM5XI3B57AI0h" class="sponsor-button" target="_blank" rel="noopener noreferrer">
-                🏆 Add your company to this treasure hunt! 🏆
+            <a href="https://titanbusinesspros.github.io/TTQ-Instructions/" class="action-button join-button" target="_blank" rel="noopener noreferrer">
+                ⚔️ Join The Treasure Hunt ⚔️
+            </a>
+            <a href="https://buy.stripe.com/14A5kE0d3cQM5XI3B57AI0h" class="action-button sponsor-button" target="_blank" rel="noopener noreferrer">
+                🏆 Sponsor This Treasure Hunt 🏆
             </a>
         </div>
 
